@@ -1,4 +1,5 @@
 # VR-VUE
+VR-DEMO   空项目     方便下次使用
 a simple admin template based on [vuejs2](http://vuejs.org/)
 
 
@@ -7,9 +8,6 @@ a simple admin template based on [vuejs2](http://vuejs.org/)
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ```
-###机密项目###
-https://wx.nullexcept.com/
-###禁止外传###
 
 # install dependencies
 npm install
@@ -26,9 +24,3 @@ npm run build
 
 Modern browsers and Internet Explorer 10+.
 
-
-### 百度统计
-
-https://tongji.baidu.com/web/welcome/login
-
-账号：asdfgh5007  pwd:Sdfgh5007
