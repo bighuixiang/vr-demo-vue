@@ -28,6 +28,7 @@ axios.interceptors.response.use(function(response) {
 
 import {
 	MA,
+	toast,
 	timeToNow,
 	jsonFormat,
 	dateFormat,
@@ -42,6 +43,7 @@ Vue.filter('numberinteger', numberinteger);
 
 //动画回调
 Vue.prototype.MA = MA;
+Vue.prototype.toast = toast();
 
 Vue.prototype.API = APIS;
 Vue.prototype.$http = axios;
@@ -51,11 +53,22 @@ const router = new VueRouter({
 	routes: routeConfig,
 })
 router.beforeEach((to, from, next) => {
-	next();
+	//路由请求前做些什么
+	if(isLoadAllImgs) {
+		next();
+	} else {
+		let interval = setInterval(() => {
+			if(isLoadAllImgs) {
+				next();
+				clearInterval(interval);
+			}
+		}, 50)
+		loader.start();
+	}
 })
 
 router.afterEach(transition => {
-
+	//路由请求完做些什么
 });
 
 new Vue({

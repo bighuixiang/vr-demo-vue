@@ -3,23 +3,27 @@
 		<div class="bg"></div>
 		<div class="bg-gr"></div>
 
-		<img src="../../assets/img/qiu.png" class="qiu" />
-		<img src="../../assets/img/qiu_gr.png" class="qiu qiu-gr" />
+		<img src="../../../static/img/qiu.png" class="qiu" />
+		<img src="../../../static/img/qiu_gr.png" class="qiu qiu-gr" />
 
-		<img src="../../assets/img/pn_logo_03.png" class="logo" />
+		<img src="../../../static/img/pn_logo_03.png" class="logo" />
 
-		<img ref="sanjiao" src="../../assets/img/wzh3j_01.png" class="sanjiao animated" v-show="hkjAni" :class="{slideInDown:hkjAni}">
-		<img src="../../assets/img/wz_01.png" class="heikeji animated" v-show="hkjAni" :class="{slideInDown:hkjAni}"/>
-		<img src="../../assets/img/wz_01_gr.png" class="heikeji-gr animated" v-show="hkjAni" :class="{slideInDown:hkjAni}"/>
+		<img ref="sanjiao" src="../../../static/img/wzh3j_01.png" class="sanjiao animated" v-show="hkjAni" :class="{slideInDown:hkjAni}">
+		<img src="../../../static/img/wz_01.png" class="heikeji animated" v-show="hkjAni" :class="{slideInDown:hkjAni}"/>
+		<img src="../../../static/img/wz_01_gr.png" class="heikeji-gr animated" v-show="hkjAni" :class="{slideInDown:hkjAni}"/>
 		
-		<img src="../../assets/img/gx_01.png" class="guangxiao animated" v-show="gxAni"/>
+		<img src="../../../static/img/wz_02.png"  class="heikeji animated" v-show="hkjAni" :class="{slideInDown:hkjAni}"/>
+		<img src="../../../static/img/wz_02_gr.png" class="heikeji-gr animated" v-show="hkjAni" :class="{slideInDown:hkjAni}"/>
+
+		<img src="../../../static/img/gx_01.png" class="guangxiao animated" v-show="gxAni"/>
 		
-		<img src="../../assets/img/zj_01.png" class="jingweidu" />
-		<div class="btns">
+		<img src="../../../static/img/zj_01.png" class="jingweidu" />
+
+		<div class="btns" v-show="gxAni">
 		<!-- <div class="btns hidden"> -->
-			<img src="../../assets/img/jt_04.png" class="jiantou" />
-			<img src="../../assets/img/btn_04.png" @click="goToVr" class="btn1" />
-			<img src="../../assets/img/btn_06.png" class="btn2" />
+			<img src="../../../static/img/jt_04.png" class="jiantou psv-marker-jiantou" />
+			<img src="../../../static/img/btn_04.png" @click="goToVr" class="btn1" />
+			<img src="../../../static/img/btn_06.png" @click="goToAi" class="btn2" />
 		</div>
 	</div>
 </template>
@@ -49,6 +53,16 @@ export default {
         path: "vr",
       });
     },
+
+    goToAi() {
+      //页面跳转
+      let self = this;
+      // 带查询参数，变成 /register?plan=private
+      self.$router.push({
+        path: "ai",
+      });
+    },
+    
     animateEnd(refName, show_age, callback) {
       let self = this;
       //获取页面ref属性DOM(类似于查找id)
@@ -81,6 +95,8 @@ export default {
           if (num == 4) {
             document.getElementsByClassName("heikeji-gr")[0].className =
               "heikeji-gr chandong";
+            document.getElementsByClassName("heikeji-gr")[1].className =
+               "heikeji-gr chandong";
             document.getElementsByClassName("bg-gr")[0].className =
               "bg-gr chandong";
           }
@@ -109,7 +125,7 @@ export default {
   .bg {
     width: 100%;
     height: 100%;
-    background: url(../../assets/img/bg.jpg) 50%/cover;
+    background: url(../../../static/img/bg.jpg) 50%/cover;
     position: absolute;
     top: 0;
     z-index: 1;
@@ -121,7 +137,7 @@ export default {
   .bg-gr {
     width: 100%;
     height: 100%;
-    background: url(../../assets/img/bg_gr.jpg) 50%/cover;
+    background: url(../../../static/img/bg_gr.jpg) 50%/cover;
     position: absolute;
     top: 0;
     opacity: 0;
@@ -132,7 +148,7 @@ export default {
     margin-left: 5%;
     height: auto;
     position: absolute;
-    animation-duration: 5s;
+    animation:guangxiao 0.3s linear 1 alternate;
     top: 0;
     z-index: 3;
   }
@@ -141,7 +157,8 @@ export default {
     margin-left: 5%;
     height: auto;
     position: absolute;
-    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-duration: 6s;
     top: 0;
     z-index: 3;
   }
@@ -171,7 +188,7 @@ export default {
   .logo {
     width: 26%;
     position: absolute;
-    top: 20px;
+    top: 2.5%;
     right: 20px;
     z-index: 2;
   }
@@ -180,6 +197,9 @@ export default {
     position: absolute;
     bottom: 32px;
     z-index: 2;
+    // opacity: 0;
+    animation-fill-mode: forwards;
+    animation: fudong 1s;
     .jiantou {
       position: absolute;
       width: 7%;
@@ -206,7 +226,7 @@ export default {
     position: absolute;
     top: 0;
     z-index: 2;
-    animation-duration: 8s;
+    animation-duration: 6s;
   }
   .qiu {
     width: 90%;
@@ -226,19 +246,21 @@ export default {
 }
 
 .malfunction1 {
-  animation: malfunction1 0.001s linear 150 alternate;
+  // animation: malfunction1 0.0025s linear 400 alternate;
+  animation: malfunction1 0.1s linear 10 alternate;
 }
 
 .malfunction2 {
-  animation: malfunction2 0.001s linear 60 alternate;
+  // animation: malfunction2 0.001s linear 1000 alternate;
+  animation: malfunction2 0.1s linear 10 alternate;
 }
 
 .malfunction3 {
-  animation: malfunction3 1s linear;
+  animation: malfunction3 0.1s linear 10;
 }
 
 .malfunction4 {
-  animation: malfunction4 0.01s linear 6 alternate;
+  animation: malfunction4 0.04s linear 6  alternate;
 }
 
 .malfunction5 {
@@ -259,7 +281,27 @@ export default {
 }
 
 .chandong {
-  animation: chandong 0.02s linear 8 alternate;
+  animation: chandong 0.08s linear 4 alternate;
+}
+
+@keyframes guangxiao{
+  0% {
+    opacity: 0;
+    transform:rotate(9deg) scale(1.3);
+  }
+  100% {
+    opacity: 1;
+    transform:rotate(0deg) scale(1);
+  }
+}
+
+@keyframes fudong{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes opacity1 {
@@ -267,10 +309,10 @@ export default {
     opacity: 0;
   }
   1% {
-    opacity: 0.5;
+    opacity: 0.1;
   }
   15% {
-    opacity: 0.5;
+    opacity: 0.2;
   }
   16% {
     opacity: 0;
@@ -279,7 +321,7 @@ export default {
     opacity: 0;
   }
   36% {
-    opacity: 0.6;
+    opacity: 0.3;
   }
   38% {
     opacity: 0;
@@ -294,10 +336,10 @@ export default {
     opacity: 0;
   }
   1% {
-    opacity: 0.01;
+    opacity: 0.03;
   }
   15% {
-    opacity: 0.05;
+    opacity: 0.08;
   }
   16% {
     opacity: 0;
@@ -321,12 +363,16 @@ export default {
     transform: translate(20px, 0) scale(1);
     opacity: 0.2;
   }
-  50% {
+  30% {
     transform: translate(40px, -30px) scale(1.1);
     opacity: 0.6;
   }
-  100% {
+  70% {
     transform: translate(-60px, -3px) scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-10px, -3px) scale(1.1);
     opacity: 0.4;
   }
 }
@@ -357,25 +403,25 @@ export default {
 
 @keyframes malfunction1 {
   0% {
-    transform: translate(10px, 0) scale(1.04);
+    transform: translate(2px, 0) scale(1);
   }
   100% {
-    transform: translate(6px, -3px) scale(1);
+    transform: translate(-3px, 0px) scale(1);
   }
 }
 
 @keyframes malfunction2 {
   0% {
-    transform: translate(-8px, 2px) scale(1);
+    transform: translate(-4px, 0px) scale(1);
   }
   100% {
-    transform: translate(-2px, -2px) scale(1.01);
+    transform: translate(2px, 0px) scale(1.01);
   }
 }
 
 @keyframes malfunction3 {
   0% {
-    transform: translate(-10px, 0) scale(1.015);
+    transform: translate(-7px, 0) scale(1.01);
   }
   100% {
     transform: translate(0, 0) scale(1);

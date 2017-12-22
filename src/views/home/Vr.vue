@@ -2,9 +2,9 @@
 	<div class="content">
 		<div class="content" ref="photosphere" id="photosphere"></div>
 		<div class="btns">
-			<div class="skip" @click="goToEyes">跳过</div>
-			<div class="gyroscope-off" @click="toggleGyroscope" :class="{'gyroscope-on':isGyroscope}">陀螺</div>
-			<div class="rotate-off" @click="toggleRotate" :class="{'rotate-on':isRotate}">旋转</div>
+			<!--<div class="skip" @click="goToEyes">跳过</div>-->
+			<div class="gyroscope-off" @click="toggleGyroscope" :class="{'gyroscope-on':isGyroscope}"></div>
+			<div class="rotate-off" @click="toggleRotate" :class="{'rotate-on':isRotate}"></div>
 		</div>
 	</div>
 </template>
@@ -53,13 +53,13 @@
 				self.PSV = new PhotoSphereViewer({
 					panorama: 'https://wx.nullexcept.com/s_static/img/1.jpg', //缩略图
 					container: 'photosphere', //全景组件父容器
-					//					caption: '平安大厦</b>', //控制台标题
+					//caption: '平安大厦</b>', //控制台标题
 					loading_img: 'https://wx.nullexcept.com/s_static/img/photosphere-logo.gif', //loadING图
 					//					navbar: 'gyroscope', //控制台配置
 					navbar: false, //控制台配置
 					default_fov: 70, //初始焦距
 					default_long: 5.6, //max 6.3
-					default_lat: 0.73, //max 1.5
+					default_lat: 0.13, //max 1.5
 					tilt_up_max: Math.PI / 2,
 					//tilt_down_max: Math.PI / 2,
 					move_speed: 3, //滑动速度
@@ -78,7 +78,7 @@
 						width: 364,
 						height: 172,
 						anchor: 'bottom center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 					}, {
 						id: 'quan1',
 						longitude: 3.198,
@@ -87,7 +87,7 @@
 						width: 124,
 						height: 72,
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 					}, {
 						id: 'jiantou1',
 						longitude: 3.198,
@@ -97,16 +97,16 @@
 						height: 142,
 						className: 'psv-marker-jiantou',
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 					}, {
 						id: 'xiaoxi2',
 						longitude: 3.698,
 						latitude: -0.1,
-						image: '/static/img/xinhao2.png',
+						image: '/static/img/jiejinxiansuo.png',
 						width: 364,
 						height: 172,
 						anchor: 'bottom center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'quan2',
@@ -116,7 +116,7 @@
 						width: 124,
 						height: 72,
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'jiantou2',
@@ -127,79 +127,79 @@
 						height: 142,
 						className: 'psv-marker-jiantou',
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'xiaoxi3',
-						longitude: 2.9,
+						longitude: 2.95,
 						latitude: -0.1,
 						image: '/static/img/xinhao2.png',
 						width: 364,
 						height: 172,
 						anchor: 'bottom center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'quan3',
-						longitude: 2.9,
+						longitude: 2.95,
 						latitude: -0.105,
 						image: '/static/img/quan.png',
 						width: 124,
 						height: 72,
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'jiantou3',
-						longitude: 2.9,
+						longitude: 2.95,
 						latitude: -0.115,
 						image: '/static/img/jiantou.png',
 						width: 111,
 						height: 142,
 						className: 'psv-marker-jiantou',
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'xiaoxi31',
-						longitude: 3,
-						latitude: -0.115,
-						image: '/static/img/xinhao2.png',
-						width: 364,
-						height: 172,
-						anchor: 'top left',
-						content: document.getElementById('photosphere').innerHTML,
+						longitude: 2.53,
+						latitude: -0.1,
+						image: '/static/img/zhajixinxihao.png',
+						width: 242,
+						height: 281,
+						anchor: 'bottom left',
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'xiaoxi4',
-						longitude: 0.9,
+						longitude: 0.1,
 						latitude: -0.1,
 						image: '/static/img/xinhao3.png',
 						width: 364,
 						height: 172,
 						anchor: 'bottom center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'quan4',
-						longitude: 0.9,
+						longitude: 0.1,
 						latitude: -0.105,
 						image: '/static/img/quan.png',
 						width: 124,
 						height: 72,
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}, {
 						id: 'jiantou4',
-						longitude: 0.9,
+						longitude: 0.1,
 						latitude: -0.115,
 						image: '/static/img/jiantou.png',
 						width: 111,
 						height: 142,
 						className: 'psv-marker-jiantou',
 						anchor: 'top center',
-						content: document.getElementById('photosphere').innerHTML,
+						//						content: document.getElementById('photosphere').innerHTML,
 						visible: false,
 					}] //标记
 				});
@@ -238,13 +238,13 @@
 						break;
 					case 2:
 						self.PSV.animate({
-							longitude: 3.05,
+							longitude: 2.82,
 							latitude: 0.13
 						}, 2000)
 						break;
 					case 3:
 						self.PSV.animate({
-							longitude: 0.9,
+							longitude: 0.1,
 							latitude: 0.13
 						}, 2000)
 						break;
@@ -372,7 +372,7 @@
 			position: fixed;
 			bottom: 32px;
 			right: 32px;
-			background-color: rgba(0, 0, 0, 0.2);
+			/*background-color: rgba(0, 0, 0, 0.2);*/
 			z-index: 999;
 			display: -webkit-flex;
 			display: flex;
@@ -381,25 +381,30 @@
 			align-items: center;
 			font-size: 16px;
 			.skip {
-				width: 42px;
-				height: 42px;
-				background: url(../../../static/img/xinhao2.png) 50%/cover;
+				width: 72px;
+				height: 72px;
 			}
 			.gyroscope-off {
-				width: 42px;
-				height: 42px;
+				width: 72px;
+				height: 72px;
 				padding-left: 22px;
+				background: url(../../../static/img/tuoluoyino.png) no-repeat center center;
+				background-size: 64px 64px;
 			}
 			.gyroscope-on {
-				color: #FFFFFF;
+				background: url(../../../static/img/tuoluoyi.png) no-repeat center center;
+				background-size: 64px 64px;
 			}
 			.rotate-off {
-				width: 42px;
-				height: 42px;
+				width: 72px;
+				height: 72px;
+				background: url(../../../static/img/xuanzhuanno.png) no-repeat center center;
 				padding-left: 22px;
+				background-size: 64px 64px;
 			}
 			.rotate-on {
-				color: #FFFFFF;
+				background: url(../../../static/img/xuanzhuan.png) no-repeat center center;
+				background-size: 64px 64px;
 			}
 		}
 	}
